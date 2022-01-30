@@ -17,18 +17,18 @@
 
 currency_rate_dict = {'USD': 0.0126, 'EUR': 0.01125, 'CHF': 0.01196, 'GBP': 0.00959, 'CNY': 0.08184}
 print("Введите количество денег для перевода:")
-input_amount = int(input())
+input_amount = input()
 
-if type(input_amount) != int:
+if input_amount.strip() == "" or len(input_amount) == 0:
     print("Вы ввели пустое поле. Введите число.")
 else:
     try:
-        if input_amount >= 0:
+        if int(input_amount) >= 0:
             print("Вы ввели", input_amount, "RUB")
             for i, j in currency_rate_dict.items():
-                result = input_amount * j
+                result = int(input_amount) * j
                 print("Конвертированная сумма в", i, "=", result)
-        elif input_amount < 0:
+        elif int(input_amount) < 0:
             print("Введите положительное число.")
     except:
         print("Вы ввели не число. Введите число.")
